@@ -1,0 +1,31 @@
+ext {
+    appcompat_version = "1.4.1"
+    coreKtx_version = "1.9.0"
+    compose_version = "1.4.3"
+    lifecycle_version = "2.6.1"
+    accompanist_version = "0.30.1"
+    activity_compose_version = "1.7.0"
+    coil_version = "2.3.0"
+    coroutines_version = "1.7.1"
+}
+
+project.ext.lib = [
+        appcompat       : "androidx.appcompat:appcompat:$appcompat_version",
+        coreKtx         : "androidx.core:core-ktx:$coreKtx_version",
+        composeUi       : "androidx.compose.ui:ui:$compose_version",
+        composeUIPreview: "androidx.compose.ui:ui-tooling-preview:$compose_version",
+        composeMaterial : "androidx.compose.material:material:$compose_version",
+        lifecycle       : "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycle_version",
+        accompanist     : "com.google.accompanist:accompanist-systemuicontroller:$accompanist_version",
+        activityCompose : "androidx.activity:activity-compose:$activity_compose_version",
+        coil            : "io.coil-kt:coil:$coil_version",
+        composeCoil     : "io.coil-kt:coil-compose:$coil_version",
+        composeCoilGif  : "io.coil-kt:coil-gif:$coil_version",
+        coroutines      : "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutines_version"
+]
+
+project.ext.config = [
+        "compileSdkVersion": 33,
+        "minSdkVersion"    : 21,
+        "targetSdkVersion" : 33
+]

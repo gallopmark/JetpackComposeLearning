@@ -1,0 +1,47 @@
+plugins {
+    id 'com.android.library'
+    id 'org.jetbrains.kotlin.android'
+}
+apply from:'../library.gradle'
+
+android {
+    compileSdk project.ext.config.compileSdkVersion
+
+    defaultConfig {
+        minSdk project.ext.config.minSdkVersion
+        targetSdk project.ext.config.targetSdkVersion
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    buildFeatures {
+        compose true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion project.compose_version
+    }
+
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+    implementation project.ext.lib.appcompat
+    implementation project.ext.lib.composeUi
+    implementation project.ext.lib.activityCompose
+    implementation project.ext.lib.composeMaterial
+    implementation project.ext.lib.accompanist
+    implementation project.ext.lib.coil
+    implementation project.ext.lib.composeCoil
+    implementation project.ext.lib.composeCoilGif
+}

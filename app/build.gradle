@@ -1,0 +1,59 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+}
+apply from:'../library.gradle'
+
+android {
+    compileSdk project.ext.config.compileSdkVersion
+
+    defaultConfig {
+        applicationId "com.pony.jetpackcompose"
+        minSdk project.ext.config.minSdkVersion
+        targetSdk project.ext.config.targetSdkVersion
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        vectorDrawables {
+            useSupportLibrary true
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    buildFeatures {
+        compose true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion project.compose_version
+    }
+    packagingOptions {
+        resources {
+            excludes += '/META-INF/{AL2.0,LGPL2.1}'
+        }
+    }
+}
+
+dependencies {
+    implementation project.ext.lib.appcompat
+    implementation project.ext.lib.coreKtx
+    implementation project.ext.lib.composeUi
+    implementation project.ext.lib.composeMaterial
+    implementation project.ext.lib.composeUIPreview
+    implementation project.ext.lib.lifecycle
+    implementation project.ext.lib.activityCompose
+    implementation project.ext.lib.accompanist
+    implementation project(":LibApp")
+}
